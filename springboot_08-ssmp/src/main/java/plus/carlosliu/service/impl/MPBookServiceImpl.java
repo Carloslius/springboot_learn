@@ -1,5 +1,7 @@
 package plus.carlosliu.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,5 +28,12 @@ public class MPBookServiceImpl extends ServiceImpl<BookMapper, Book> implements 
     @Override
     public Boolean delete(Integer id) {
         return bookMapper.deleteById(id) > 0;
+    }
+
+    @Override
+    public IPage<Book> getPage(Integer currentPage, Integer size) {
+        IPage<Book> page = new Page<>(currentPage, size);
+        bookMapper.selectPage(page, null);
+        return page;
     }
 }
