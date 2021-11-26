@@ -16,7 +16,7 @@ import java.util.List;
     形参位置注释表明参数来源
  */
 
-@RestController
+//@RestController
 @RequestMapping("/books")
 public class BookController {
     @Autowired
