@@ -1,0 +1,13 @@
+#2、配置相关信息
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ssm
+    username: root
+    password: s300056.
+
+#设置mp自动转换的表前缀
+#mybatis-plus:
+#  global-config:
+#    db-config:
+#      table-prefix: sys_

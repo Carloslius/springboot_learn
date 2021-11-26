@@ -1,0 +1,56 @@
+
+baseDir: c:\windows
+#使用${属性名}来引用数据
+tempDir: ${baseDir}\temp
+#yaml中支持转义字符，需要用“”将其包括起来
+tempDir2: "${baseDir}\temp \t1 \t2 \t3"
+
+country: china
+province: henan
+city: zhengzhou
+area: jinshui
+
+party: false
+
+user:
+  name: CarlosLiu
+  age: 20
+
+a:
+  b:
+    c:
+      d:
+        e: 123
+
+likes:
+  - game
+  - music
+  - sleep
+likes2: [game,music,sleep]
+
+users:
+  - name: lys
+    age: 20
+  - name: lhs
+    age: 20
+users2:
+  -
+    name: lys
+    age: 20
+  -
+    name: lhs
+    age: 20
+users3: [{name:lys,age:20},{name:lhs,age:20}]
+
+#创建类，用于封装下面的数据
+#由spring帮我们去加载数据到对象中，一定要告诉spring这组信息
+#使用的时候从spring中直接获取信息使用
+datasource:
+  driver: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/spring_boot
+  username: root
+  password: s300056.
+server:
+  port: 8080
+  servlet:
+    context-path: /test
