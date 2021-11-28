@@ -27,7 +27,8 @@ public class BookControllerR {
 //        R r = new R();
 //        boolean flag = bookService.save(book);
 //        r.setFlag(flag);
-        return new R(bookService.save(book));
+        Boolean flag = bookService.save(book);
+        return new R(flag, flag ? "添加成功^_^" : "添加失败-_-!");
     }
 
     @PutMapping
@@ -37,7 +38,8 @@ public class BookControllerR {
 
     @DeleteMapping("/{id}")
     public R delete(@PathVariable Integer id){
-        return new R(bookService.removeById(id));
+        boolean flag = bookService.removeById(id);
+        return new R(flag, flag ? "删除成功^_^" : "删除失败-_-!");
     }
 
     @GetMapping("{id}")
@@ -51,7 +53,12 @@ public class BookControllerR {
     }
 
     @GetMapping("{currentPage}/{pageSize}")
-    public R getPage(@PathVariable Integer currentPage, @PathVariable Integer pageSize){
-        return new R(true, bookService.getPage(currentPage, pageSize));
+    public R getPage(@PathVariable Integer currentPage, @PathVariable Integer pageSize, Book book){
+        System.out.println("参数 ====> " + book);
+        IPage<Book> page = bookService.getPage(currentPage, pageSize, book);
+        if (currentPage > page.getCurrent()){
+            page = bookService.getPage((int)page.getCurrent(), pageSize, book);
+        }
+        return new R(true, page);
     }
 }
