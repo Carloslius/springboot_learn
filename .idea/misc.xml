@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/springboot_07_druid/pom.xml" />
         <option value="$PROJECT_DIR$/springboot_08-ssmp/pom.xml" />
         <option value="$PROJECT_DIR$/springboot_09_config/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_10_profiles/pom.xml" />
       </list>
     </option>
   </component>

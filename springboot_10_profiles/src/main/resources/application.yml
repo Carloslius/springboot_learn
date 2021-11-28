@@ -1,0 +1,20 @@
+# 冲突时dev起作用，在最后面配置
+#spring:
+#  profiles:
+#    active: dev
+#    include: devMVC,devDB
+
+# 冲突时dev最后起作用，在最前面配置
+#spring:
+#  profiles:
+#    active: pro
+#    group:
+#      "dev": devMVC,devDB
+#      "pro": proMVC,devDB
+
+spring:
+  profiles:
+    active: @profile.active@
+    group:
+      "dev": devMVC,devDB
+      "pro": proMVC,devDB

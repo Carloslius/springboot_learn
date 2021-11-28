@@ -1,0 +1,4 @@
+server:
+  port: 62
+  servlet:
+    context-path: /ebank
